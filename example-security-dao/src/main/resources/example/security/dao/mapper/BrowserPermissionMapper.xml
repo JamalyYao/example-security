@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="example.security.dao.mapper.BrowserPermissionMapper">
+  <resultMap id="BaseResultMap" type="example.security.dao.entity.BrowserPermission">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="perm_name" jdbcType="VARCHAR" property="permName" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="url" jdbcType="VARCHAR" property="url" />
+    <result column="icon" jdbcType="VARCHAR" property="icon" />
+    <result column="permission" jdbcType="VARCHAR" property="permission" />
+    <result column="p_id" jdbcType="INTEGER" property="pId" />
+    <result column="is_display" jdbcType="TINYINT" property="isDisplay" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="type" jdbcType="TINYINT" property="type" />
+    <result column="method" jdbcType="VARCHAR" property="method" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="flag" jdbcType="TINYINT" property="flag" />
+    <result column="update_by" jdbcType="VARCHAR" property="updateBy" />
+    <result column="create_by" jdbcType="VARCHAR" property="createBy" />
+  </resultMap>
+    <select id="getPermissonByLoginName" resultType="example.security.dao.entity.BrowserPermission">
+      SELECT DISTINCT
+			t1.id,
+			t1.perm_name,
+			t1.remark,
+			t1.url,
+			t1.icon,
+			t1.permission,
+			t1.p_id,
+			t1.type,
+			t1.sort,
+			t1.method
+		FROM
+			t_browser_permission t1
+		JOIN t_browser_role_permission t2 ON t1.id = t2.permission_id
+		JOIN t_browser_role t3 ON t3.id = t2.role_id
+		JOIN t_browser_user_role t4 ON t3.id = t4.role_id
+		JOIN t_browser_user t5 ON t5.id = t4.user_id
+		AND t5.flag = 0
+		AND t5.account = #{account}
+		AND t3.flag = 0
+		AND t1.flag = 0
+		order by p_id, sort, id
+    </select>
+</mapper>

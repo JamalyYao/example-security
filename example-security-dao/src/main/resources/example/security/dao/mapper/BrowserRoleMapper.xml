@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="example.security.dao.mapper.BrowserRoleMapper">
+  <resultMap id="BaseResultMap" type="example.security.dao.entity.BrowserRole">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="role_name" jdbcType="VARCHAR" property="roleName" />
+    <result column="role_code" jdbcType="VARCHAR" property="roleCode" />
+    <result column="status" jdbcType="CHAR" property="status" />
+    <result column="remark" jdbcType="VARCHAR" property="remark" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="flag" jdbcType="TINYINT" property="flag" />
+  </resultMap>
+
+  <select id="getUserRoleInfo" resultType="example.security.dao.entity.BrowserRole">
+    SELECT
+        role.id,
+        role.role_name,
+        role.role_code,
+        role.`status`,
+        role.create_time,
+        role.update_time,
+        role.remark
+    FROM
+        t_browser_user_role userrole
+    INNER JOIN t_browser_role role
+    WHERE
+        userrole.user_id = 1
+    AND role.flag = 0
+    AND role.`status` = 0
+  </select>
+
+
+</mapper>

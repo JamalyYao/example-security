@@ -1,0 +1,46 @@
+server:
+  port: 8082
+
+#jdbc数据库访问
+jdbc:
+  dataSourceClassName : com.alibaba.druid.pool.DruidDataSource
+  driverClassName : com.mysql.jdbc.Driver
+  url : jdbc:mysql://localhost:3306/example-security?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull
+  username : root
+  password : root
+  initialSize : 5
+  minIdle : 5
+  maxActive : 20
+  maxWait : 60000
+  timeBetweenEvictionRunsMillis : 60000
+  minEvictableIdleTimeMillis : 300000
+  validationQuery : SELECT 'x'
+  testWhileIdle : true
+  testOnBorrow : false
+  testOnReturn : false
+  poolPreparedStatements : false
+  maxPoolPreparedStatementPerConnectionSize : 20
+  statementExecutableSqlLogEnable : false
+  setSlowSqlMillis : 1000
+
+  #tk.mybatis配置
+  mapper:
+    mappers:
+      - tk.mybatis.mapper.common.Mapper
+    notEmpty: true
+
+  mybatis:
+    configLocation: classpath:/mybatis/mybatis-config.xml
+    typeAliasesPackage: example.security.dao.entity
+    mapperLocations: classpath:example/security/dao/mapper/**.xml
+
+  example:
+    security:
+      browser:
+        loginPage: classpath:/custom_signIn.html
+
+#  spring:
+#    security:
+#      user:
+#        name: wangww
+#        password: 1122
