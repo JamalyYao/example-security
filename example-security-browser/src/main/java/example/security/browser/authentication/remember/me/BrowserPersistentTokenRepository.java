@@ -58,6 +58,7 @@ public class BrowserPersistentTokenRepository implements PersistentTokenReposito
         if (ObjectUtil.isNotNull(browserRememberMe)){
             browserRememberMe.setToken(tokenValue);
             browserRememberMe.setLastUserTime(lastUsed);
+            securityService.updateToken(series,tokenValue,lastUsed);
         }
     }
 
