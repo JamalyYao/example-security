@@ -55,42 +55,48 @@
         </javaClientGenerator>
 
         <!--生成对应表及类名去掉Mybatis Generator生成的一堆 example -->
-        <table tableName="t_browser_user" domainObjectName="BrowserUser"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_freeze" javaType="Integer" jdbcType="TINYINT" />
-            <columnOverride column="flag" javaType="Integer" jdbcType="TINYINT" />
-        </table>
+        <!--<table tableName="t_browser_user" domainObjectName="BrowserUser"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+            <!--<columnOverride column="is_freeze" javaType="Integer" jdbcType="TINYINT" />-->
+            <!--<columnOverride column="flag" javaType="Integer" jdbcType="TINYINT" />-->
+        <!--</table>-->
 
-        <table tableName="t_browser_role" domainObjectName="BrowserRole"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="flag" javaType="Integer" jdbcType="TINYINT" />
-        </table>
+        <!--<table tableName="t_browser_role" domainObjectName="BrowserRole"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+            <!--<columnOverride column="flag" javaType="Integer" jdbcType="TINYINT" />-->
+        <!--</table>-->
 
-        <table tableName="t_browser_permission" domainObjectName="BrowserPermission"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_display" javaType="Integer" jdbcType="TINYINT" />
-            <columnOverride column="type" javaType="Integer" jdbcType="TINYINT" />
-            <columnOverride column="flag" javaType="Integer" jdbcType="TINYINT" />
-        </table>
+        <!--<table tableName="t_browser_permission" domainObjectName="BrowserPermission"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+            <!--<columnOverride column="is_display" javaType="Integer" jdbcType="TINYINT" />-->
+            <!--<columnOverride column="type" javaType="Integer" jdbcType="TINYINT" />-->
+            <!--<columnOverride column="flag" javaType="Integer" jdbcType="TINYINT" />-->
+        <!--</table>-->
 
-        <table tableName="t_browser_user_role" domainObjectName="BrowserUserRole"
-               enableCountByExample="false" enableUpdateByExample="false"
-               enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_display" javaType="Integer" jdbcType="TINYINT" />
-        </table>
+        <!--<table tableName="t_browser_user_role" domainObjectName="BrowserUserRole"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+            <!--<columnOverride column="is_display" javaType="Integer" jdbcType="TINYINT" />-->
+        <!--</table>-->
 
-        <table tableName="t_browser_role_permission" domainObjectName="BrowserRolePermission"
+        <!--<table tableName="t_browser_role_permission" domainObjectName="BrowserRolePermission"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false"-->
+               <!--enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">-->
+            <!--<generatedKey column="id" sqlStatement="Mysql" identity="true"/>-->
+            <!--<columnOverride column="is_display" javaType="Integer" jdbcType="TINYINT" />-->
+        <!--</table>-->
+
+        <table tableName="t_browser_remember_me" domainObjectName="BrowserRememberMe"
                enableCountByExample="false" enableUpdateByExample="false"
                enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
-            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
-            <columnOverride column="is_display" javaType="Integer" jdbcType="TINYINT" />
+            <!--<generatedKey column="series" sqlStatement="Mysql" identity="true"/>-->
         </table>
     </context>
 </generatorConfiguration>

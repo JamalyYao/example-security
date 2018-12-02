@@ -24,7 +24,7 @@ public class UserController {
     private SecurityService securityService;
 
     @GetMapping("/me")
-    @PreAuthorize("hasAnyAuthority({'sys:user:lists'})")
+    @PreAuthorize("hasAnyAuthority({'sys:user:list'})")
     public Object getCurrentUser(@AuthenticationPrincipal UserDetails user) {
         logger.info("test security permission...........");
         logger.info("test security permission...........");

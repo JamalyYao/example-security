@@ -1,6 +1,7 @@
 package example.security.browser.configuration;
 
 import example.security.browser.authentication.access.denied.BrowserAccessDeniedHandlerImpl;
+import example.security.browser.authentication.remember.me.BrowserPersistentTokenRepository;
 import example.security.core.authentication.AbstractChannelSecurityConfig;
 import example.security.core.authentication.mobile.SmsAuthenticationSecurityConfig;
 import example.security.core.constants.SecurityBrowserConstant;
@@ -13,6 +14,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 
@@ -23,9 +25,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 public class SecurityBrowserConfig extends AbstractChannelSecurityConfig {
 
     @Autowired
-    private SecurityProperties securityProperties;
-
-    @Autowired
     private BrowserAccessDeniedHandlerImpl browserAccessDeniedHandler;
 
     @Autowired
@@ -33,6 +32,15 @@ public class SecurityBrowserConfig extends AbstractChannelSecurityConfig {
 
     @Autowired
     private SmsAuthenticationSecurityConfig smsAuthenticationSecurityConfig;
+
+    @Autowired
+    private UserDetailsService myUserDetailService;
+
+    @Autowired
+    private SecurityProperties securityProperties;
+
+    @Autowired
+    private BrowserPersistentTokenRepository browserPersistentTokenRepository;
 
     @Override
     protected void configure(HttpSecurity httpSecurity) throws Exception {
@@ -43,6 +51,10 @@ public class SecurityBrowserConfig extends AbstractChannelSecurityConfig {
                 .apply(validatorCodeSecurityConfig)
                 .and()
                 .apply(smsAuthenticationSecurityConfig)
+                .and()
+                .rememberMe().tokenRepository(browserPersistentTokenRepository)
+                .tokenValiditySeconds(securityProperties.getBrowser().getRememberMeSeconds())
+                .userDetailsService(myUserDetailService)
                 .and()
                 .exceptionHandling().accessDeniedHandler(browserAccessDeniedHandler)
                 .and()
