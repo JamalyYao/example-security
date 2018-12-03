@@ -11,6 +11,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Component
 public class SecurityService {
@@ -87,5 +88,13 @@ public class SecurityService {
 
     public List<BrowserRememberMe> getLocalAllByUsername(String username) {
         return browserRememberMeDao.getLocalAllByUsername(username);
+    }
+
+    public List<String> getLocalUserIds(String providerId, String providerUserId) {
+        return null;
+    }
+
+    public Set<String> queryLocalUserIds(String providerId, Set<String> providerUserIds) {
+        return null;
     }
 }

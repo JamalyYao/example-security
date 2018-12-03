@@ -13,4 +13,6 @@ public class SecurityProperties {
 
     ValidatorCodeProperties code = new ValidatorCodeProperties();
 
+    SocialProperties social = new SocialProperties();
+
 }
