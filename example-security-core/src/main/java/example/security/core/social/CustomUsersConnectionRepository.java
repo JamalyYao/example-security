@@ -74,6 +74,6 @@ public class CustomUsersConnectionRepository implements UsersConnectionRepositor
         if (userId == null) {
             throw new IllegalArgumentException("userId cannot be null");
         }
-        return new CustomConnectionRepository(userId,connectionFactoryLocator, textEncryptor);
+        return null;
     }
 }
